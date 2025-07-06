@@ -139,23 +139,20 @@
       <section class="contact" id="contact">
   <h2 class="heading">Contact <span>ME!</span></h2>
 
-  <form action="https://formsubmit.co/ankitab7839@gmail.com" method="POST" id="contact-form">
-    <!-- 🔒 Hidden fields -->
-    <input type="hidden" name="_captcha" value="false">
+<form action="https://formspree.io/f/mnqepgjl" method="POST" id="contact-form">
+  <div class="input-box">
+    <input type="text" name="Name" placeholder="Full Name" required>
+    <input type="email" name="Email" placeholder="Email Address" required>
+  </div>
+  <div class="input-box">
+    <input type="tel" name="Mobile" placeholder="Mobile Number" required>
+    <input type="text" name="Subject" placeholder="Email Subject" required>
+  </div>
+  <textarea name="Message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+  <input type="submit" value="Send Message" class="btn">
+</form>
+<span id="msg" style="color: green; font-weight: bold; display: block; margin-top: 10px;"></span>
 
-    <div class="input-box">
-      <input type="text" name="Name" placeholder="Full Name" required>
-      <input type="email" name="Email" placeholder="Email Address" required>
-    </div>
-    <div class="input-box">
-      <input type="tel" name="Mobile" placeholder="Mobile Number" required>
-      <input type="text" name="Subject" placeholder="Email Subject" required>
-    </div>
-    <textarea name="Message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-    <input type="submit" value="Send Message" class="btn">
-  </form>
-
-  <span id="msg" style="color: green; font-weight: bold; display: block; margin-top: 10px;"></span>
 </section>
 
         <footer class="footer">
