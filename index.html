@@ -136,23 +136,27 @@
                 
             </div>
         </section>
-        <section class="contact"id="contact">
-            <h2 class="heading">Contact<span>ME!</span></h2>
+      <section class="contact" id="contact">
+  <h2 class="heading">Contact <span>ME!</span></h2>
 
-            <form action="#" name="submit-to-google-sheet">
-                <div class="input-box">
-                    <input type="text" name="Name" placeholder="Full Name">
-                    <input type="email" name="Email Address" placeholder="Email Address">
-                </div>
-                <div class="input-box">
-                    <input type="number" name="Mobile Number"placeholder="Mobile Number">
-                    <input type="text"name="Email Subject" placeholder="Email Subject">
-                </div>
-                <textarea name="Your Message" id="" cols="30" rows="10"placeholder="Your Message"></textarea>
-                <input type="submit" value="Send Message"class="btn">
-            </form>
-            <span id="msg"></span>
-        </section>
+  <form action="https://formsubmit.co/ankitab7839@gmail.com" method="POST" id="contact-form">
+    <!-- 🔒 Hidden fields -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <div class="input-box">
+      <input type="text" name="Name" placeholder="Full Name" required>
+      <input type="email" name="Email" placeholder="Email Address" required>
+    </div>
+    <div class="input-box">
+      <input type="tel" name="Mobile" placeholder="Mobile Number" required>
+      <input type="text" name="Subject" placeholder="Email Subject" required>
+    </div>
+    <textarea name="Message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+    <input type="submit" value="Send Message" class="btn">
+  </form>
+
+  <span id="msg" style="color: green; font-weight: bold; display: block; margin-top: 10px;"></span>
+</section>
 
         <footer class="footer">
             <div class="footer-text">
@@ -167,24 +171,29 @@
 
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
         <script src="script.js"></script>
-        <script>
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbzFPVGxI-75Ilkm2z_EMuI9ubPlp8-7dQmMzzdPiIunLPPzj3bcY1ohMdT_DfZ3zPwhTA/exec'
-            const form = document.forms['submit-to-google-sheet']
-            const msg=document.getElementById("msg")
-          
-            form.addEventListener('submit', e => {
-              e.preventDefault()
-              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => {
-                    msg.innerHTML="Message sent successfully"
-                    setTimeout(function(){
-                        msg.innerHTML=""
-                    },5000)
-                    form.reset()
-                })
-                .catch(error => console.error('Error!', error.message))
-            })
-          </script>
+     <script>
+  const form = document.getElementById("contact-form");
+  const msg = document.getElementById("msg");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form)
+    })
+    .then(response => {
+      msg.innerText = "✅ Thank you! Your message has been sent.";
+      form.reset();
+      setTimeout(() => {
+        msg.innerText = "";
+      }, 5000);
+    })
+    .catch(error => {
+      msg.innerText = "❌ Something went wrong. Please try again.";
+    });
+  });
+</script>
         
     </body>
 </html>
